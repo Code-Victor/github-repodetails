@@ -22,8 +22,8 @@ const Login = () => {
         console.log('navigated')
     }
   return (
-    <section className="">
-      <div className="w-[80%] max-w-[600px] mx-auto bg-slate-300 mt-14 rounded-xl px-4 py-5 ">
+    <section className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+      <div className="w-[80vw] max-w-[600px] mx-auto bg-slate-300 mt-14 rounded-xl px-4 py-5 ">
         <h1 className="text-center text-xl font-bold">Welcome back,</h1>
         <h2 className="text-center mb-3">please login to continue</h2>
         <button
