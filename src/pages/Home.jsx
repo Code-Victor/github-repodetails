@@ -5,14 +5,11 @@ import {
   PeopleIcon,
 } from "@primer/octicons-react";
 import { ThreeBody } from '@uiball/loaders'
-import { data } from "autoprefixer";
-import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth, useSigninCheck, useUser } from "reactfire";
+import { useSigninCheck, useUser } from "reactfire";
 import { Avatar, Follow, RepoDetails, Search, TabBar,Footer } from "../components";
 import {
-  useGetReposPPageQuery,
   useGetReposQuery,
   useGetStarsQuery,
   useGetUserQuery,
