@@ -11,9 +11,9 @@ export const githubApi=createApi({
         getRepos:builder.query({
             query:(uid)=>`user/${uid}/repos`,
         }),
-        getReposWname:builder.query({
-            query:(name)=>`users/${name}`,
+        getStars:builder.query({
+            query:(uid)=>`user/${uid}/starred`,
         }),
     })   
 })
-export const {useGetReposQuery,useGetReposWnameQuery}=githubApi
+export const {useGetReposQuery,useGetUserQuery,useGetStarsQuery}=githubApi
