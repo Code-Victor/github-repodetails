@@ -1,7 +1,6 @@
 export {default as NavBar} from './NavBar'
 export {default as Footer} from './Footer'
 export {default as Avatar} from './Avatar'
-export {default as Button} from './Button'
 export {default as Follow} from './Follow'
 export {default as TabBar} from './TabBar'
 export {default as Dropdown} from './Dropdown'
