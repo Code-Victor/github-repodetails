@@ -18,8 +18,6 @@ import {
 const Home = () => {
   const { status, data: signInCheckResult } = useSigninCheck();
   const uid = useUser().data?.providerData[0]?.uid;
-  const [page,setPage]=useState(1)
-
   const navigator = useNavigate();
   const {
     data: repos,
@@ -38,7 +36,6 @@ const Home = () => {
   } = useGetStarsQuery(uid);
 
   useEffect(() => {
-    console.log("hey");
     if (status === "success") {
       if (!signInCheckResult?.signedIn) {
         navigator("/login");
@@ -46,7 +43,6 @@ const Home = () => {
     }
   }, [status,signInCheckResult]);
 
-  console.log("uid", uid);
   if (repoLoading || userLoading || starLoading || status === "loading") {
     return <div className="min-h-[90vh] min grid place-items-center">
       <ThreeBody size={100} color={'#1e293b'} /></div>;
@@ -57,7 +53,7 @@ const Home = () => {
   }
   return (
     <section className="md:grid md:grid-cols-3 lg:grid-cols-5 custom-rows">
-      <section className="container mx-auto px-2 mt-2 md:col-span-1 md:row-span-1 lg:col-span-2 min-h-[calc(100vh-220px)]">
+      <section className="container mx-auto px-2 mt-2 md:col-span-1 md:row-span-1 lg:col-span-2 md:min-h-[calc(100vh-220px)]">
         <div className="flex md:flex-col md:items-baseline items-center gap-4 md:max-w-[250px] lg:max-w[350px] md:ml-auto ">
           <Avatar
             src={user.avatar_url}
