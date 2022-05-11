@@ -57,7 +57,7 @@ const Home = () => {
   }
   return (
     <section className="md:grid md:grid-cols-3 lg:grid-cols-5 custom-rows">
-      <section className="container mx-auto px-2 mt-2 md:col-span-1 md:row-span-1 lg:col-span-2">
+      <section className="container mx-auto px-2 mt-2 md:col-span-1 md:row-span-1 lg:col-span-2 min-h-[calc(100vh-220px)]">
         <div className="flex md:flex-col md:items-baseline items-center gap-4 md:max-w-[250px] lg:max-w[350px] md:ml-auto ">
           <Avatar
             src={user.avatar_url}
