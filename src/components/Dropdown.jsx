@@ -18,7 +18,7 @@ const Dropdown = ({ Name, header, data, setter,state }) => {
             <span className="text-[15px] font-semibold">{Name}</span>
             <TriangleDownIcon size={18} />
           </Popover.Button>
-          <Popover.Overlay className={"fixed inset-0 bg-black opacity-30 md:hidden"} />
+          <Popover.Overlay className={"fixed inset-0 bg-black opacity-30 md:hidden z-10"} />
           <Transition
             as={Fragment}
             enter="transition ease-out duration-200"
@@ -30,7 +30,7 @@ const Dropdown = ({ Name, header, data, setter,state }) => {
           >
             <Popover.Panel
               className={
-                "w-[90%] md:w-[300px]  mx-auto  absolute top-[50%] md:top-10 md:left-auto md:right-0 left-[50%] -translate-x-[50%] md:translate-x-0 md:translate-y-0 -translate-y-[50%] divide-y rounded-xl bg-white overflow-clip md:shadow-xl border border-gray-300"
+                "w-[90%] md:w-[300px]  mx-auto z-20 absolute top-[50%] md:top-10 md:left-auto md:right-0 left-[50%] -translate-x-[50%] md:translate-x-0 md:translate-y-0 -translate-y-[50%] divide-y rounded-xl bg-white overflow-clip md:shadow-xl border border-gray-300"
               }
             >
               <div className="flex justify-between px-3 py-4 md:p-2 md:pl-4">
