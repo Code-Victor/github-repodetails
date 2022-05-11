@@ -49,7 +49,7 @@ function TabBar({ active, data }) {
           return (
             <div className="flex-1 h-full ">
               <div className="flex  items-center border-b-2 border-transparent justify-center py-2 gap-0.5 hover:bg-gray-300 rounded-lg">
-                <h1 className="text-sm font-semibold ">{tabItem.name}</h1>
+                <h1 className="text-xs md:text-sm font-semibold ">{tabItem.name}</h1>
                 {tabItem.data && <Badge data={data[tabItem.name]} />}
               </div>
               <div
