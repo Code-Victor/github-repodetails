@@ -9,7 +9,7 @@ function capitalize(str) {
           
         const  refinedLanguage = language.split(' ').map(capitalize).join(' ');
           return(
-              <div className="flex gap-1 items-center">
+              <div className="text-sm md:text-base flex gap-1 items-center">
                   <div className={`h-4 w-4 rounded-2xl`} style={{backgroundColor:githubColor[refinedLanguage]?.color||githubColor[language]?.color}}>
                   </div>
                   <span>{language}</span>

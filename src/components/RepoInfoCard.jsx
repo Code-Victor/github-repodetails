@@ -33,7 +33,7 @@ function RepoInfoCard({ repo }) {
             </div>
             <div className="flex mt-2 gap-2">
               <LanguageBadge language={repo.language} />
-              <div>updated {handleDates()}</div>
+              <div className="text-sm md:text-base">updated {handleDates()}</div>
             </div>
           </div>
         </div>
