@@ -19,7 +19,7 @@ function RepoInfoCard({ repo }) {
   }
   return (
     <>
-      <div className="flex items-center py-6 max-w-[900px]">
+      <div className="flex items-center py-3 md:py-6 max-w-[900px]">
         <div className="flex flex-1 ">
           <div className="flex-1">
             <div className="flex flex-wrap gap-2">

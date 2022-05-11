@@ -57,7 +57,7 @@ function RepoInfoContainer({ repos }) {
   }, [search]);
 
   return (
-    <div className="p-2">
+    <div className="p-2 min-h-[calc(100vh-540px)]">
       {displayRepos.slice((page-1)*noPerPage,page*noPerPage).map((repo) => {
         return <RepoInfoCard repo={repo} />;
       })}
