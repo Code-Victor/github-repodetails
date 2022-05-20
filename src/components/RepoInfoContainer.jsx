@@ -63,8 +63,8 @@ function RepoInfoContainer({ repos }) {
       })}
       {displayRepos.length>=noPerPage&&<div className="flex w-full justify-center my-8 max-w-[900px]">
         <div className="rounded  grid grid-cols-2">
-          <button className={`bg-gray-50 hover:bg-gray-100 py-3 rounded-l-xl pr-2 pl-4 font-semibold hover:text-blue-400 border border-gray-400 disabled:bg-gray-100 disabled:text-gray-600 disabled:hover:text-gray-600`} disabled={page===1} onClick={()=>setPage(page-1)}>Previous</button>
-          <button className={`bg-gray-50 hover:bg-gray-100 py-3 rounded-r-xl pl-2 pr-4 font-semibold hover:text-blue-400 border border-gray-400 disabled:bg-gray-100 disabled:text-gray-600 disabled:hover:text-gray-600`} disabled={page===maxPage} onClick={()=>setPage(page+1)} >Next</button>
+          <button className={`bg-gray-50 hover:bg-gray-100 py-3 rounded-l-xl pr-2 pl-4 font-semibold hover:text-blue-400 border border-gray-400 disabled:bg-gray-100 disabled:text-gray-600 disabled:hover:text-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-500 dark:border-gray-500`} disabled={page===1} onClick={()=>setPage(page-1)}>Previous</button>
+          <button className={`bg-gray-50 hover:bg-gray-100 py-3 rounded-r-xl pl-2 pr-4 font-semibold hover:text-blue-400 border border-gray-400 disabled:bg-gray-100 disabled:text-gray-600 disabled:hover:text-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-500 dark:border-gray-500`} disabled={page===maxPage} onClick={()=>setPage(page+1)} >Next</button>
         </div>
       </div>}
     </div>

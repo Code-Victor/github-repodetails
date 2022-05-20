@@ -31,7 +31,7 @@ function RepoInfoCard({ repo }) {
               </a>
               <OutlinedButton Content={"Public"} />
             </div>
-            <div className="flex mt-2 gap-2">
+            <div className="flex mt-2 gap-2 dark:text-gray-200">
               <LanguageBadge language={repo.language} />
               <div className="text-sm md:text-base">updated {handleDates()}</div>
             </div>
@@ -39,8 +39,8 @@ function RepoInfoCard({ repo }) {
         </div>
         <div className="">
           <a href={`https://github.com/${repo.full_name}/`} target="_blank">
-            <button className="py-1 px-3 flex gap-1 border-gray-300 border rounded-lg items-center border-solid bg-gray-50 hover:bg-gray-100">
-            <StarIcon size={18} className='fill-gray-600'/>
+            <button className="py-1 px-3 flex gap-1 border-gray-300 border rounded-lg items-center border-solid bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 dark:border-gray-700">
+            <StarIcon size={18} className='fill-gray-600 dark:fill-gray-500'/>
               <span className="font-semibold">Star</span>
             </button>
           </a>
@@ -52,7 +52,7 @@ function RepoInfoCard({ repo }) {
 }
 function OutlinedButton({ Content }) {
   return (
-    <button className="text-sm font-semibold  px-1 border border-gray-300 rounded-xl">
+    <button className="text-xs font-semibold  px-1 border border-gray-300 rounded-xl dark:text-gray-200 dark:border-gray-700">
       {Content}
     </button>
   );

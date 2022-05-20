@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 import HorizontalRule from "./HorizontalRule";
 
 function Search({ repos, setters, state }) {
-  const [mounted,setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [search, setSearch] = useSearchParams({
     title: "",
     sort: "Last updated",
@@ -22,14 +22,14 @@ function Search({ repos, setters, state }) {
     ),
   ];
   useEffect(() => {
-
-    if(mounted){setSearch({
-      title: search.get('title'),
-      sort: state.sort,
-      language: state.language,
-    })}
+    if (mounted) {
+      setSearch({
+        title: search.get("title"),
+        sort: state.sort,
+        language: state.language,
+      });
+    }
     setMounted(true);
-    
   }, [state.language, state.sort]);
   function handleInputSearch(e) {
     setSearch({
@@ -46,7 +46,7 @@ function Search({ repos, setters, state }) {
         <form className=" md:flex-1">
           <input
             type="text"
-            className="border-2 focus:ring-blue-500 focus:ring-2 focus:outline-none w-full  bg-transparent rounded-lg mt-3 p-2 placeholder:text-slate-800 "
+            className="border-2 focus:ring-blue-500 focus:ring-2 focus:outline-none w-full  bg-transparent rounded-lg mt-3 p-2 placeholder:text-slate-800 dark:border-gray-500 text-gray-100 dark:placeholder:text-gray-100"
             placeholder="Find a repository..."
             value={search.get("title")}
             onChange={(e) => handleInputSearch(e)}

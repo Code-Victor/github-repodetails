@@ -52,19 +52,20 @@ const Home = () => {
     return <div>Error</div>;
   }
   return (
-    <section className="md:grid md:grid-cols-3 lg:grid-cols-5 custom-rows">
-      <section className="container mx-auto px-2 mt-2 md:col-span-1 md:row-span-1 lg:col-span-2 md:min-h-[calc(100vh-220px)]">
+    <section className="md:grid md:grid-cols-3 lg:grid-cols-5 custom-rows dark:bg-gray-900">
+      <section className="container mx-auto px-2 pt-2 md:col-span-1 md:row-span-1 lg:col-span-2 md:min-h-[calc(100vh-220px)]">
         <div className="flex md:flex-col md:items-baseline items-center gap-4 md:max-w-[250px] lg:max-w[350px] md:ml-auto ">
           <Avatar
             src={user.avatar_url}
-            className={"md:w-56 md:h-56 lg:w-64 lg:h-64 md:-mt-[10%] z-10"}
+            className={"md:w-56 md:h-56 lg:w-64 lg:h-64 md:-mt-[10%] z-30"}
             main={true}
+            name={user.name}
           />
           <div>
-            <h1 className="text-2xl font-semibold">{user.name}</h1>
-            <p className="text-xl text-gray-600">{user.login}</p>
-            {user.bio && <p className="hidden md:block my-3">{user.bio}</p>}
-            <div className="hidden md:flex gap-2 items-center mb-3">
+            <h1 className="text-2xl font-semibold dark:text-gray-200">{user.name}</h1>
+            <p className="text-xl text-gray-600 ">{user.login}</p>
+            {user.bio && <p className="hidden md:block my-3 dark:text-gray-200">{user.bio}</p>}
+            <div className="hidden md:flex gap-2 items-center mb-3 dark:text-gray-200">
               <PeopleIcon size={16} />
               <div className="flex ">
                 <Follow number={user.followers} follower />
@@ -74,19 +75,19 @@ const Home = () => {
             </div>
             <div className="hidden md:block">
               {user.company && (
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 items-center dark:text-gray-200">
                   <OrganizationIcon size={16} />
                   <span>{user.company}</span>
                 </div>
               )}
               {user.location && (
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 items-center dark:text-gray-200">
                   <LocationIcon size={16} />
                   <span>{user.location}</span>
                 </div>
               )}
               {user.blog && (
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 items-center dark:text-gray-200">
                   <LinkIcon size={16} />
                   <a
                     className="hover:text-blue-500 hover:underline"
@@ -97,7 +98,7 @@ const Home = () => {
                 </div>
               )}
               {user.twitter_username && (
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 items-center dark:text-gray-200">
                   <TwiiterIcon />
                   <a
                     className="hover:text-blue-500 hover:underline"
@@ -111,9 +112,9 @@ const Home = () => {
           </div>
         </div>
         <div>
-          {user.bio && <p className="block md:hidden my-3">{user.bio}</p>}
+          {user.bio && <p className="block md:hidden my-3 dark:text-gray-200">{user.bio}</p>}
           {user.blog && (
-            <div className="flex md:hidden gap-4 items-center mb-1">
+            <div className="flex md:hidden gap-4 items-center mb-1 dark:text-gray-200">
               <LinkIcon size={16} />
               <a
                 className="hover:text-blue-500 hover:underline"
@@ -123,7 +124,7 @@ const Home = () => {
               </a>
             </div>
           )}
-          <div className="flex md:hidden gap-2 items-center mb-3">
+          <div className="flex md:hidden gap-2 items-center mb-3 dark:text-gray-200">
             <PeopleIcon size={16} />
             <div className="flex ">
               <Follow number={user.followers} follower />

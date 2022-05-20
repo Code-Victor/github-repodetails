@@ -15,7 +15,7 @@ import { useAuth, useSigninCheck, useUser } from "reactfire";
 import { useGetUserQuery } from "../services/githubApi";
 import Avatar from "./Avatar";
 
-function NavBar() {
+function NavBar({ mode, setMode }) {
   const user = useUser();
   const { status, data: signInCheckResult } = useSigninCheck();
   const { pathname } = useLocation();
@@ -28,8 +28,8 @@ function NavBar() {
     });
   }
   return (
-    <div className="flex h-16 bg-slate-800 conatiner mx-auto px-2 justify-between items-center">
-      <Link to="/">
+    <nav className="flex h-16 bg-slate-800 conatiner mx-auto px-2 justify-between items-center">
+      <Link to="/" aria-label="Github repo checker logo">
         <div className="flex gap-3 h-full items-center text-white">
           <MarkGithubIcon size={36} className="fill-white" />
           <h1 className="text-xl">Github repo Details</h1>
@@ -37,7 +37,8 @@ function NavBar() {
       </Link>
       {status !== "loading" &&
         (signInCheckResult.signedIn === true ? (
-          <div className="space-x-2">
+          <div className=" flex gap-2 items-center">
+            <ModeChanger mode={mode} setMode={setMode} />
             <NavMenu logout={logout} />
           </div>
         ) : (
@@ -49,10 +50,50 @@ function NavBar() {
             </Link>
           )
         ))}
-    </div>
+    </nav>
   );
 }
-
+function ModeChanger({ mode, setMode }) {
+  return (
+    <>
+      {mode ? (
+        <button aria-label="Switch to dark mode" onClick={() => setMode(false)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 stroke-gray-100"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+        </button>
+      ) : (
+        <button aria-label="Switch to light mode" onClick={() => setMode(true)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 stroke-gray-100"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
+        </button>
+      )}
+    </>
+  );
+}
 function NavMenu({ logout }) {
   const uid = useUser().data?.providerData[0]?.uid;
   const {
@@ -85,6 +126,7 @@ function NavMenu({ logout }) {
       {({ open }) => (
         <>
           <Popover.Button
+            aria-label="Navigation menu"
             className={`
             ${
               open ? "open " : "text-opacity-90"
@@ -93,8 +135,9 @@ function NavMenu({ logout }) {
             <ThreeBarsIcon size={16} className="fill-white" />
           </Popover.Button>
           <Popover.Overlay
-            className={"fixed inset-0 bg-black opacity-30 md:hidden z-10 cursor-none"}
-            
+            className={
+              "fixed inset-0 bg-black opacity-30 md:hidden z-10 cursor-none"
+            }
           />
           <Transition
             as={Fragment}
@@ -105,7 +148,7 @@ function NavMenu({ logout }) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%] md:right-0 md:translate-x-0 md:translate-y-0 md:top-12 w-screen max-w-sm  transform px-4 sm:px-0 lg:max-w-3xl z-30">
+            <Popover.Panel className="absolute top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%] md:right-0 md:translate-x-0 md:translate-y-0 md:top-12 w-screen max-w-sm  transform px-4 sm:px-0 lg:max-w-3xl z-40">
               {({ close }) => (
                 <>
                   <button className="block ml-auto" onClick={() => close()}>
@@ -151,6 +194,7 @@ function NavMenu({ logout }) {
                           <Avatar
                             src={user?.avatar_url}
                             className="w-12 h-12"
+                            name={user?.name}
                           />
                           <a
                             className="block text-sm text-gray-500 hover:text-blue-400 hover:underline"
