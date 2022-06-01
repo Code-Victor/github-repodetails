@@ -103,7 +103,7 @@ function NavMenu({ logout }) {
   } = useGetUserQuery(uid);
   const solutions = [
     {
-      name: "Lauch in github",
+      name: "Launch in github",
       description: "open your github page in a new tab",
       href: user?.html_url,
       icon: ArrowUpRightIcon,
@@ -158,7 +158,7 @@ function NavMenu({ logout }) {
                     />
                   </button>
                   <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                    <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                    <div className="relative grid gap-8 bg-white dark:bg-gray-800 p-7 lg:grid-cols-2">
                       {solutions.map((item) => (
                         <a
                           key={item.name}
@@ -166,29 +166,29 @@ function NavMenu({ logout }) {
                           {...(item.href?.includes("#")
                             ? { onClick: () => logout() }
                             : { target: "_blank" })}
-                          className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50"
+                          className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50"
                         >
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12">
                             <item.icon
-                              className="fill-black"
+                              className="fill-black dark:fill-white"
                               aria-hidden="true"
                             />
                           </div>
                           <div className="ml-4">
-                            <p className="text-sm font-medium text-gray-900">
+                            <p className="text-sm font-medium text-gray-900 dark:text-white">
                               {item.name}
                             </p>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
                               {item.description}
                             </p>
                           </div>
                         </a>
                       ))}
                     </div>
-                    <div className="bg-gray-50 p-4">
+                    <div className="bg-gray-50 dark:bg-gray-800 p-4">
                       <a
                         href="##"
-                        className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-blue -500 focus-visible:ring-opacity-50"
+                        className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring focus-visible:ring-blue -500 focus-visible:ring-opacity-50"
                       >
                         <span className="flex items-center gap-4">
                           <Avatar
@@ -197,7 +197,7 @@ function NavMenu({ logout }) {
                             name={user?.name}
                           />
                           <a
-                            className="block text-sm text-gray-500 hover:text-blue-400 hover:underline"
+                            className="block text-sm text-gray-500 dark:text-gray-400 hover:text-blue-400 hover:underline"
                             href={user?.html_url}
                           >
                             {user?.name}
