@@ -5,3 +5,7 @@
 .custom-rows{
     grid-template-rows: 50px 1fr;
 }
+*{
+    transition: background-color 300ms ease-in-out,
+                color 150ms ease;
+}
